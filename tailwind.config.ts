@@ -57,6 +57,22 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Author site specific colors
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          foreground: "hsl(var(--gold-foreground))",
+          muted: "hsl(var(--gold-muted))",
+        },
+        charcoal: {
+          DEFAULT: "hsl(var(--charcoal))",
+          foreground: "hsl(var(--charcoal-foreground))",
+        },
+        cream: "hsl(var(--cream))",
+        "warm-gray": "hsl(var(--warm-gray))",
+      },
+      fontFamily: {
+        serif: ["var(--font-serif)", "serif"],
+        sans: ["var(--font-sans)", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
