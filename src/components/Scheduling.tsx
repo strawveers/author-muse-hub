@@ -1,11 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, Clock, Users, Video, MapPin, Sparkles } from "lucide-react";
+import CalcomModal from "./CalcomModal";
+import { useState } from "react";
 
 const Scheduling = () => {
-  const handleSchedule = (type: string) => {
-    // Placeholder para integração com Cal.com
-    alert(`Agendamento de ${type} será integrado com Cal.com em breve!`);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedMeeting, setSelectedMeeting] = useState<typeof meetingTypes[0] | null>(null);
+
+  const handleSchedule = (meeting: typeof meetingTypes[0]) => {
+    setSelectedMeeting(meeting);
+    setModalOpen(true);
   };
 
   const meetingTypes = [
@@ -17,7 +22,8 @@ const Scheduling = () => {
       price: "Gratuito",
       icon: Users,
       features: ["Bate-papo pessoal", "Sessão de fotos", "Autógrafo personalizado"],
-      type: "Presencial"
+      type: "Presencial",
+      calUrl: "https://cal.com/isabella-romano/meet-greet"
     },
     {
       id: "book-signing",
@@ -27,7 +33,8 @@ const Scheduling = () => {
       price: "R$ 25,00",
       icon: MapPin,
       features: ["Autógrafo em até 3 livros", "Dedicatória personalizada", "Foto opcional"],
-      type: "Presencial"
+      type: "Presencial",
+      calUrl: "https://cal.com/isabella-romano/book-signing"
     },
     {
       id: "virtual-chat",
@@ -37,7 +44,8 @@ const Scheduling = () => {
       price: "R$ 80,00",
       icon: Video,
       features: ["Videochamada privada", "Dicas de escrita", "Q&A personalizado"],
-      type: "Online"
+      type: "Online",
+      calUrl: "https://cal.com/isabella-romano/virtual-chat"
     }
   ];
 
@@ -109,7 +117,7 @@ const Scheduling = () => {
                     </div>
                     
                     <Button
-                      onClick={() => handleSchedule(meeting.title)}
+                      onClick={() => handleSchedule(meeting)}
                       className="w-full bg-gold text-charcoal hover:bg-gold/90 font-semibold transition-all duration-300 hover:scale-105"
                     >
                       <Calendar className="mr-2" size={16} />
@@ -166,11 +174,21 @@ const Scheduling = () => {
                 📅 <strong>Disponibilidade:</strong> Terças e quintas, 14h às 18h | Sábados, 9h às 12h
               </p>
               <p className="text-sm text-muted-foreground">
-                Integração com Cal.com em desenvolvimento - Em breve você poderá agendar diretamente!
+                Sistema de agendamento integrado com Cal.com - Clique em qualquer botão para agendar!
               </p>
             </div>
           </div>
         </div>
+
+        {/* Cal.com Modal */}
+        {selectedMeeting && (
+          <CalcomModal
+            isOpen={modalOpen}
+            onClose={() => setModalOpen(false)}
+            calUrl={selectedMeeting.calUrl}
+            title={selectedMeeting.title}
+          />
+        )}
       </div>
     </section>
   );
