@@ -1,10 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Books from "@/components/Books";
-import FAQ from "@/components/FAQ";
-import Chatbot from "@/components/Chatbot";
 import Scheduling from "@/components/Scheduling";
 import Footer from "@/components/Footer";
+import ChatWidget from "@/components/ChatWidget";
 
 const Index = () => {
   return (
@@ -13,11 +12,10 @@ const Index = () => {
       <main>
         <Hero />
         <Books />
-        <FAQ />
-        <Chatbot />
         <Scheduling />
       </main>
       <Footer />
+      <ChatWidget />
     </div>
   );
 };
