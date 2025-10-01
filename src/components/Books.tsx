@@ -14,7 +14,7 @@ const Books = () => {
       cover: bookCover1,
       rating: 4.8,
       reviews: 1247,
-      price: "R$ 29,90",
+      price: "29,90 €",
       status: "Lançamento",
       buyLink: "#"
     },
