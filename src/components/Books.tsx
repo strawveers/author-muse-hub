@@ -25,7 +25,7 @@ const Books = () => {
       cover: bookCover2,
       rating: 4.9,
       reviews: 2156,
-      price: "R$ 27,90",
+      price: "27,90 €",
       status: "Bestseller",
       buyLink: "#"
     },
@@ -36,7 +36,7 @@ const Books = () => {
       cover: bookCover3,
       rating: 4.7,
       reviews: 3421,
-      price: "R$ 24,90",
+      price: "24,90 €",
       status: "Série",
       buyLink: "#"
     }
